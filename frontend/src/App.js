@@ -1,14 +1,17 @@
-import './App.css';
+import "./App.css";
 
+import PoemCard from "./components/PoemCard";
+
+let poemCards = []
+for (let i = 0; i < 10; i++) {
+  poemCards.push(<PoemCard/>)
+}
 function App() {
   return (
     <div className="container app">
       <h1>Awesome Poems</h1>
-      <div className="row poemGridContainer">
-        <div class="three columns">Col1</div>
-        <div class="three columns">Col2</div>
-        <div class="three columns">Col3</div>
-        <div class="three columns">Col4</div>
+      <div className="poemGridContainer">
+        {poemCards}
       </div>
     </div>
   );

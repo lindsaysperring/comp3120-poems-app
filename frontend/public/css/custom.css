@@ -1,11 +1,25 @@
 .container.app {
-    margin-top: 3%;
+  margin-top: 3%;
 }
 
 .container.app h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .poemGridContainer {
-    margin-top: 6%;
+  margin-top: 6%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.poemCard {
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.1s;
+  cursor: pointer;
+}
+.poemCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
