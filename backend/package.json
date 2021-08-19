@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./server.js",
+    "json-server": "json-server -p 3001 --watch poems.json -r routes.json"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -11,6 +12,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "^0.31.2",
+    "json-server": "^0.16.3",
     "morgan": "~1.9.1"
   }
 }
