@@ -72,9 +72,20 @@ input[type="submit"].darkButton {
 }
 
 .backArrow {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
-.backArrow:hover{
-    cursor: pointer;
+.backArrow:hover {
+  cursor: pointer;
+}
+
+div.error {
+  margin: 10px;
+  padding: 10px;
+  background-color: #ffe0e0;
+  color: #ba3939;
+}
+
+div.error p:last-child {
+  margin-bottom: 0;
 }

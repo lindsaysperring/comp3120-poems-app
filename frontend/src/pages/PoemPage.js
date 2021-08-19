@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
+import ReactMarkdown from "react-markdown";
 import axios from "axios";
 
 export default function PoemPage(props) {
@@ -42,7 +43,7 @@ export default function PoemPage(props) {
           <h3>{poem.poem.title}</h3>
           <p>By <b>{poem.poem.author}</b></p>
           <br />
-          <p>{poem.poem.text}</p>
+          <ReactMarkdown>{poem.poem.text}</ReactMarkdown>
           <br />
           <span
             className="backArrow"
