@@ -1,6 +1,12 @@
 import "./App.css";
 
-import { Link, NavLink, Redirect, Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import {
+  NavLink,
+  Redirect,
+  Route,
+  BrowserRouter as Router,
+  Switch,
+} from "react-router-dom";
 
 import AddPoem from "./pages/AddPoem";
 import Home from "./pages/Home";
@@ -10,10 +16,12 @@ function App() {
   return (
     <Router>
       <nav>
-      <NavLink exact to="/" activeClassName="active">
+        <NavLink exact to="/" activeClassName="active">
           Home
         </NavLink>
-        <NavLink to="/addPoem" activeClassName="active">Add Poem</NavLink>
+        <NavLink to="/addPoem" activeClassName="active">
+          Add Poem
+        </NavLink>
       </nav>
       <div className="container app">
         <Switch>
@@ -21,13 +29,13 @@ function App() {
             <AddPoem />
           </Route>
           <Route path="/poem/:id" exact>
-            <PoemPage/>
+            <PoemPage />
           </Route>
           <Route path="/" exact>
             <Home />
           </Route>
           <Route>
-            <Redirect to="/"/>
+            <Redirect to="/" />
           </Route>
         </Switch>
       </div>
