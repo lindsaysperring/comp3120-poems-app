@@ -35,7 +35,7 @@ export default function Home() {
       <h1>Awesome Poems</h1>
       <div className="poemGridContainer">
         {poems.poems.map((poem) => (
-          <PoemCard title={poem.title} author={poem.author} text={poem.text} />
+          <PoemCard key={poem.id} id={poem.id} title={poem.title} author={poem.author} text={poem.text} />
         ))}
       </div>
     </div>
