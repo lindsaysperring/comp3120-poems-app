@@ -129,7 +129,7 @@ export default function AddPoem() {
       <p>Preview:</p>
       <pre>
         <code>
-          <ReactMarkdown>{inputs.text}</ReactMarkdown>
+          <ReactMarkdown className="markdownPreview">{inputs.text}</ReactMarkdown>
         </code>
       </pre>
     </div>

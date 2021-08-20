@@ -118,3 +118,7 @@ span.upDootCount {
   margin-left: 10px;
   font-size: 12px;
 }
+
+div.markdownPreview p {
+  margin-bottom: 0;
+}
