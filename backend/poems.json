@@ -4,37 +4,43 @@
       "id": 0,
       "title": "Poem Title",
       "author": "Bob Loblaw",
-      "text": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at ante vel eros rhoncus placerat. Cras pulvinar lorem eu suscipit condimentum. Maecenas malesuada dui vitae viverra imperdiet. Praesent in libero non magna ullamcorper placerat eget ut elit. Nulla ultricies tempus ultricies. Aliquam consequat elementum commodo. Vivamus et erat eu nunc molestie facilisis. Suspendisse varius commodo libero, non euismod est laoreet in. "
+      "text": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at ante vel eros rhoncus placerat. Cras pulvinar lorem eu suscipit condimentum. Maecenas malesuada dui vitae viverra imperdiet. Praesent in libero non magna ullamcorper placerat eget ut elit. Nulla ultricies tempus ultricies. Aliquam consequat elementum commodo. Vivamus et erat eu nunc molestie facilisis. Suspendisse varius commodo libero, non euismod est laoreet in. ",
+      "votes": 2
     },
     {
       "title": "Yes good title v2",
       "author": "Bob Loblaw",
       "text": "Yes this is good text.",
-      "id": 1
+      "id": 1,
+      "votes": 2
     },
     {
       "id": 2,
       "title": "Poem Title",
       "author": "Bob Loblaw",
-      "text": " Fusce magna odio, imperdiet a dignissim quis, fermentum at mi. Nulla sem lorem, placerat non fringilla sed, tincidunt nec nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ut elit in elit consequat ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget nisl rhoncus, rutrum nisl ac, scelerisque ante. Etiam elementum dignissim ex et vulputate. Pellentesque maximus ex ut odio ornare faucibus. Suspendisse tempor, mauris non euismod hendrerit, magna purus accumsan lorem, eget fermentum ipsum ante vel nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent a sapien id elit elementum varius eget ut lorem. Fusce eget pretium turpis. Duis felis elit, bibendum nec molestie laoreet, consequat quis felis. "
+      "text": " Fusce magna odio, imperdiet a dignissim quis, fermentum at mi. Nulla sem lorem, placerat non fringilla sed, tincidunt nec nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ut elit in elit consequat ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget nisl rhoncus, rutrum nisl ac, scelerisque ante. Etiam elementum dignissim ex et vulputate. Pellentesque maximus ex ut odio ornare faucibus. Suspendisse tempor, mauris non euismod hendrerit, magna purus accumsan lorem, eget fermentum ipsum ante vel nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent a sapien id elit elementum varius eget ut lorem. Fusce eget pretium turpis. Duis felis elit, bibendum nec molestie laoreet, consequat quis felis. ",
+      "votes": 1
     },
     {
       "id": 3,
       "title": "Poem Title",
       "author": "Bob Loblaw",
-      "text": " Nunc malesuada purus nec tortor dictum viverra. Etiam a dolor odio. Nam orci tellus, faucibus nec libero et, laoreet lacinia sem. Ut varius tincidunt nisi sit amet mattis. Phasellus eget risus diam. Curabitur tellus mauris, dapibus sit amet nisl efficitur, iaculis condimentum sem. Morbi molestie arcu sit amet sapien ornare, vel dictum odio pretium. Sed id imperdiet sapien. Praesent quis sagittis justo, at volutpat mauris. "
+      "text": " Nunc malesuada purus nec tortor dictum viverra. Etiam a dolor odio. Nam orci tellus, faucibus nec libero et, laoreet lacinia sem. Ut varius tincidunt nisi sit amet mattis. Phasellus eget risus diam. Curabitur tellus mauris, dapibus sit amet nisl efficitur, iaculis condimentum sem. Morbi molestie arcu sit amet sapien ornare, vel dictum odio pretium. Sed id imperdiet sapien. Praesent quis sagittis justo, at volutpat mauris. ",
+      "votes": 2
     },
     {
       "id": 4,
       "title": "Poem Title",
       "author": "Bob Loblaw",
-      "text": " Suspendisse potenti. Nullam venenatis, justo nec semper fringilla, nunc est bibendum mi, id finibus enim orci ut nunc. Nulla gravida lacus et risus faucibus, et pretium nisi ullamcorper. Donec feugiat lorem ut eros tempor tempus. Donec ac purus a nisi fermentum accumsan. Fusce quis enim bibendum, molestie enim ac, hendrerit tortor. Nunc vel arcu neque. Nulla semper vel mi id aliquet. Aenean scelerisque, dolor sit amet aliquet malesuada, massa ante finibus diam, in laoreet lorem justo in ante. Phasellus lacinia lectus eget tempus pellentesque. Etiam congue, massa a varius imperdiet, tellus quam pretium elit, vel facilisis eros nulla id arcu. Aliquam vulputate mi eu massa blandit auctor. Quisque tincidunt ex augue, a sollicitudin lectus euismod blandit. Etiam auctor urna nec est euismod gravida. Aenean sed velit ut risus porta viverra et vitae lectus. "
+      "text": " Suspendisse potenti. Nullam venenatis, justo nec semper fringilla, nunc est bibendum mi, id finibus enim orci ut nunc. Nulla gravida lacus et risus faucibus, et pretium nisi ullamcorper. Donec feugiat lorem ut eros tempor tempus. Donec ac purus a nisi fermentum accumsan. Fusce quis enim bibendum, molestie enim ac, hendrerit tortor. Nunc vel arcu neque. Nulla semper vel mi id aliquet. Aenean scelerisque, dolor sit amet aliquet malesuada, massa ante finibus diam, in laoreet lorem justo in ante. Phasellus lacinia lectus eget tempus pellentesque. Etiam congue, massa a varius imperdiet, tellus quam pretium elit, vel facilisis eros nulla id arcu. Aliquam vulputate mi eu massa blandit auctor. Quisque tincidunt ex augue, a sollicitudin lectus euismod blandit. Etiam auctor urna nec est euismod gravida. Aenean sed velit ut risus porta viverra et vitae lectus. ",
+      "votes": 0
     },
     {
       "author": "Test",
       "title": "Test title",
       "text": "__Lorem__ ipsum dolor sit amet,  \nconsectetur adipiscing elit,  \nsed do eiusmod tempor incididunt ut \nlabore et dolore magna aliqua.  ",
-      "id": 5
+      "id": 5,
+      "votes": 1
     }
   ]
 }

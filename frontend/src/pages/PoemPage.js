@@ -7,12 +7,35 @@ import axios from "axios";
 export default function PoemPage(props) {
   const { id } = useParams();
   const [poem, setPoem] = useState({
-    poem: { title: "", author: "", text: "" },
+    poem: { title: "", author: "", text: "", votes: "" },
     status: "idle",
     error: null,
   });
 
   const history = useHistory();
+
+  const upDootHandler = (e) => {
+    e.stopPropagation();
+    axios
+      .patch(`http://localhost:3001/api/poems/${id}`, {
+        votes: poem.poem.votes + 1,
+      })
+      .then((res) => {
+        setPoem({ ...poem, poem: { ...poem.poem, votes: res.data.votes } });
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     axios
@@ -33,7 +56,7 @@ export default function PoemPage(props) {
         }
         console.log(error);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -41,10 +64,22 @@ export default function PoemPage(props) {
       {poem.status === "success" && (
         <div>
           <h3>{poem.poem.title}</h3>
-          <p>By <b>{poem.poem.author}</b></p>
+          <p>
+            By <b>{poem.poem.author}</b>
+          </p>
           <br />
           <ReactMarkdown>{poem.poem.text}</ReactMarkdown>
           <br />
+          <div className="upDootContainer">
+            <img
+              className="updoot"
+              src="/assets/up-arrow-hand-drawn-outline-svgrepo-com.svg"
+              alt="Up arrow"
+              onClick={upDootHandler}
+            />
+            <span className="upDootCount">{poem.poem.votes}</span>
+          </div>
+          <br/>
           <span
             className="backArrow"
             onClick={() => {
