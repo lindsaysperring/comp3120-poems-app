@@ -5,14 +5,14 @@
       "title": "Poem Title",
       "author": "Bob Loblaw",
       "text": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at ante vel eros rhoncus placerat. Cras pulvinar lorem eu suscipit condimentum. Maecenas malesuada dui vitae viverra imperdiet. Praesent in libero non magna ullamcorper placerat eget ut elit. Nulla ultricies tempus ultricies. Aliquam consequat elementum commodo. Vivamus et erat eu nunc molestie facilisis. Suspendisse varius commodo libero, non euismod est laoreet in. ",
-      "votes": 2
+      "votes": 4
     },
     {
       "title": "Yes good title v2",
       "author": "Bob Loblaw",
       "text": "Yes this is good text.",
       "id": 1,
-      "votes": 2
+      "votes": 3
     },
     {
       "id": 2,
@@ -33,14 +33,35 @@
       "title": "Poem Title",
       "author": "Bob Loblaw",
       "text": " Suspendisse potenti. Nullam venenatis, justo nec semper fringilla, nunc est bibendum mi, id finibus enim orci ut nunc. Nulla gravida lacus et risus faucibus, et pretium nisi ullamcorper. Donec feugiat lorem ut eros tempor tempus. Donec ac purus a nisi fermentum accumsan. Fusce quis enim bibendum, molestie enim ac, hendrerit tortor. Nunc vel arcu neque. Nulla semper vel mi id aliquet. Aenean scelerisque, dolor sit amet aliquet malesuada, massa ante finibus diam, in laoreet lorem justo in ante. Phasellus lacinia lectus eget tempus pellentesque. Etiam congue, massa a varius imperdiet, tellus quam pretium elit, vel facilisis eros nulla id arcu. Aliquam vulputate mi eu massa blandit auctor. Quisque tincidunt ex augue, a sollicitudin lectus euismod blandit. Etiam auctor urna nec est euismod gravida. Aenean sed velit ut risus porta viverra et vitae lectus. ",
-      "votes": 0
+      "votes": 1
     },
     {
       "author": "Test",
       "title": "Test title",
       "text": "__Lorem__ ipsum dolor sit amet,  \nconsectetur adipiscing elit,  \nsed do eiusmod tempor incididunt ut \nlabore et dolore magna aliqua.  ",
       "id": 5,
-      "votes": 1
+      "votes": 2
+    },
+    {
+      "author": "test",
+      "title": "test title",
+      "text": "yes good text\nasdasd  \nasdasdasd\n__Words__\n*good preview*",
+      "votes": 5,
+      "id": 6
+    },
+    {
+      "author": "abc",
+      "title": "title",
+      "text": "testing 123  \ndouble line",
+      "votes": 0,
+      "id": 7
+    },
+    {
+      "author": "asd",
+      "title": "asdasd",
+      "text": "asdsad  \nasdasdsad",
+      "votes": 0,
+      "id": 8
     }
   ]
 }

@@ -68,7 +68,7 @@ export default function PoemPage(props) {
             By <b>{poem.poem.author}</b>
           </p>
           <br />
-          <ReactMarkdown>{poem.poem.text}</ReactMarkdown>
+          <ReactMarkdown className="poemText">{poem.poem.text}</ReactMarkdown>
           <br />
           <div className="upDootContainer">
             <img
@@ -79,7 +79,7 @@ export default function PoemPage(props) {
             />
             <span className="upDootCount">{poem.poem.votes}</span>
           </div>
-          <br/>
+          <br />
           <span
             className="backArrow"
             onClick={() => {

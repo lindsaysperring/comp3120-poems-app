@@ -21,8 +21,8 @@ export default function AddPoem() {
   const fieldErrors = {
     title: "Please enter a poem title.",
     author: "Please enter an author",
-    text: "Your poem cannot be empty"
-  }
+    text: "Your poem cannot be empty",
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ export default function AddPoem() {
     }
 
     axios
-      .post("http://localhost:3001/api/poems", {...inputs, votes: 0})
+      .post("http://localhost:3001/api/poems", { ...inputs, votes: 0 })
       .then((res) => {
         setStatus({ status: "success", error: null });
         setInputs(initialValues);
@@ -68,7 +68,7 @@ export default function AddPoem() {
       <form onSubmit={handleFormSubmit}>
         <div className="row">
           <div className="six columns">
-            <label for="author">Your Name</label>
+            <label htmlFor="author">Your Name</label>
             <input
               className="u-full-width"
               type="text"
@@ -82,7 +82,7 @@ export default function AddPoem() {
             />
           </div>
           <div className="six columns">
-            <label for="title">Poem Title</label>
+            <label htmlFor="title">Poem Title</label>
             <input
               className="u-full-width"
               type="text"
@@ -98,7 +98,7 @@ export default function AddPoem() {
         </div>
         <div className="row">
           <div className="twelve columns">
-            <label for="poemContent">Poem Content</label>
+            <label htmlFor="poemContent">Poem Content</label>
             <textarea
               className="u-full-width"
               placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque maximus."
@@ -127,11 +127,7 @@ export default function AddPoem() {
       )}
 
       <p>Preview:</p>
-      <pre>
-        <code>
-          <ReactMarkdown className="markdownPreview">{inputs.text}</ReactMarkdown>
-        </code>
-      </pre>
+      <ReactMarkdown className="markdownPreview">{inputs.text}</ReactMarkdown>
     </div>
   );
 }

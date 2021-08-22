@@ -121,4 +121,13 @@ span.upDootCount {
 
 div.markdownPreview p {
   margin-bottom: 0;
+  
+}
+
+div.markdownPreview {
+  background: #f1f1f1;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
 }
