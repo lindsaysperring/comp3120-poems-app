@@ -21,4 +21,28 @@ poemsRouter.get("/:id", function (req, res) {
   }
 });
 
+poemsRouter.post("/", function (req, res) {
+    
+  if (!req.body || !req.body.title || !req.body.author || !req.body.text) {
+    console.log(req.body);
+    return res.status(400).send({ error: "Missing Fields" });
+  }
+
+  const maxId = poems.length > 0 ? Math.max(...poems.map((u) => u.id)) : 0;
+  const poem = req.body;
+  poem.id = maxId + 1;
+
+  const newPoem = {
+    id: poem.id,
+    title: poem.title,
+    author: poem.author,
+    text: poem.text,
+    votes: 0,
+  };
+
+  poems.push(newPoem);
+
+  res.json(newPoem);
+  
+});
 module.exports = poemsRouter;
