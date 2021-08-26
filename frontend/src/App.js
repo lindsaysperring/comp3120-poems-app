@@ -11,8 +11,20 @@ import {
 import AddPoem from "./pages/AddPoem";
 import Home from "./pages/Home";
 import PoemPage from "./pages/PoemPage";
+import axios from "axios";
 
 function App() {
+  
+  axios.interceptors.request.use(
+    (request) => {
+      request.headers["bob"] = "Bobalooba";
+      return request;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+
   return (
     <Router>
       <nav>

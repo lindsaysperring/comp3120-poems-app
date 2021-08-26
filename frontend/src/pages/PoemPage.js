@@ -17,9 +17,7 @@ export default function PoemPage(props) {
   const upDootHandler = (e) => {
     e.stopPropagation();
     axios
-      .patch(`http://localhost:3001/api/poems/${id}`, {
-        votes: poem.poem.votes + 1,
-      })
+      .post(`/api/poems/${id}`)
       .then((res) => {
         setPoem({ ...poem, poem: { ...poem.poem, votes: res.data.votes } });
       })
@@ -39,7 +37,7 @@ export default function PoemPage(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/poems/${id}`)
+      .get(`/api/poems/${id}`)
       .then((res) => {
         setPoem({ poem: res.data, status: "success", error: null });
       })

@@ -11,7 +11,7 @@ export default function PoemCard({ id, text, title, author, votes, ...props }) {
   const upDootHandler = (e) => {
     e.stopPropagation();
     axios
-      .patch(`http://localhost:3001/api/poems/${id}`, {votes: votesState+1})
+      .post(`/api/poems/${id}`)
       .then((res) => {
         setVotes(res.data.votes);
       })

@@ -12,7 +12,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/poems")
+      .get("/api/poems")
       .then((res) => {
         setPoems({ ...poems, poems: res.data, status: "success" });
       })

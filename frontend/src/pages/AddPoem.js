@@ -37,7 +37,7 @@ export default function AddPoem() {
     }
 
     axios
-      .post("http://localhost:3001/api/poems", { ...inputs, votes: 0 })
+      .post("/api/poems", inputs )
       .then((res) => {
         setStatus({ status: "success", error: null });
         setInputs(initialValues);
