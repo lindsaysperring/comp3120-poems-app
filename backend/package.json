@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./server.js",
-    "json-server": "json-server -p 3001 --watch poems.json -r routes.json"
+    "json-server": "json-server -p 3001 --watch poems.json -r routes.json",
+    "dev": "nodemon ./server.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
