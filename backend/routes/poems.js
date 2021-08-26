@@ -45,4 +45,17 @@ poemsRouter.post("/", function (req, res) {
   res.json(newPoem);
   
 });
+
+poemsRouter.post('/:id', (req,res) => {
+    const id = Number(req.params.id);
+    const poem = poems.find((poem) => poem.id === id);
+
+    if (poem) {
+        poem.votes++
+        return res.json(poem)
+    } else {
+        res.status(404).json({ error: "Poem with ID not found" });
+    }
+})
+
 module.exports = poemsRouter;
