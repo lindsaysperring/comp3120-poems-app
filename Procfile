@@ -1,2 +1,2 @@
-release: cd frontend && npm install && npm run build
-web: cd frontend && npm install && npm run build && cd ../backend && npm install && npm run start
+release: cd frontend && npm install && npm run build && cd ../backend && npm install
+web: cd backend && npm run start
