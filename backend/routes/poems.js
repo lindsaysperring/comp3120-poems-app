@@ -7,6 +7,14 @@ const initialPoems = JSON.parse(rawdata);
 
 let poems = initialPoems.poems;
 
+const checkHeader = (req, res, next) => {
+  const authHeader = req.header("bob");
+  if (authHeader === "Bobalooba") return next();
+  return res.sendStatus(401);
+}
+
+poemsRouter.use(checkHeader)
+
 poemsRouter.get("/", function (req, res) {
   res.json(poems);
 });
