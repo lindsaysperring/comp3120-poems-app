@@ -41,7 +41,7 @@ nav a.active {
 .poemGridContainer {
   margin-top: 6%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
@@ -61,6 +61,13 @@ nav a.active {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   text-decoration: none;
   color: #222;
+}
+
+.poemText p {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
 
 span.stayOnDaBottom {

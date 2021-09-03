@@ -6,14 +6,23 @@ const rawdata = fs.readFileSync(path.join(__dirname, "../poems.json"));
 const initialPoems = JSON.parse(rawdata);
 
 let poems = initialPoems.poems;
+const sortPoems = () => {
+  poems.sort((a, b) => {
+    if (a.votes < b.votes) return 1;
+    if (a.votes > b.votes) return -1;
+    return 0;
+  });
+};
+
+sortPoems();
 
 const checkHeader = (req, res, next) => {
   const authHeader = req.header("bob");
   if (authHeader === "Bobalooba") return next();
   return res.sendStatus(401);
-}
+};
 
-poemsRouter.use(checkHeader)
+poemsRouter.use(checkHeader);
 
 poemsRouter.get("/", function (req, res) {
   res.json(poems);
@@ -30,7 +39,6 @@ poemsRouter.get("/:id", function (req, res) {
 });
 
 poemsRouter.post("/", function (req, res) {
-    
   if (!req.body || !req.body.title || !req.body.author || !req.body.text) {
     console.log(req.body);
     return res.status(400).send({ error: "Missing Fields" });
@@ -50,20 +58,22 @@ poemsRouter.post("/", function (req, res) {
 
   poems.push(newPoem);
 
+  sortPoems();
+
   res.json(newPoem);
-  
 });
 
-poemsRouter.post('/:id', (req,res) => {
-    const id = Number(req.params.id);
-    const poem = poems.find((poem) => poem.id === id);
+poemsRouter.post("/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const poem = poems.find((poem) => poem.id === id);
 
-    if (poem) {
-        poem.votes++
-        return res.json(poem)
-    } else {
-        res.status(404).json({ error: "Poem with ID not found" });
-    }
-})
+  if (poem) {
+    poem.votes++;
+    sortPoems();
+    return res.json(poem);
+  } else {
+    res.status(404).json({ error: "Poem with ID not found" });
+  }
+});
 
 module.exports = poemsRouter;

@@ -34,10 +34,11 @@ export default function PoemCard({ id, text, title, author, votes, ...props }) {
       onClick={() => {
         history.push(`/poem/${id}`);
       }}
-      class="poemCard"
+      className="poemCard"
     >
-      <ReactMarkdown>
-        {text.length > 200 ? `${text.substr(0, 200)} ...` : text}
+      <ReactMarkdown className="poemText">
+        {/* {text.length > 200 ? `${text.substr(0, 200)} ...` : text} */}
+        {text}
       </ReactMarkdown>
       <span className="stayOnDaBottom">
       <h4>{title}</h4>
