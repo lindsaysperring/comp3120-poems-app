@@ -172,3 +172,16 @@ div.markdownPreview {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
+@media screen and (max-width: 1100px) {
+  .poemGridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .poemGridContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
