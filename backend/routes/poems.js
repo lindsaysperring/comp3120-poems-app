@@ -25,7 +25,17 @@ const checkHeader = (req, res, next) => {
 poemsRouter.use(checkHeader);
 
 poemsRouter.get("/", function (req, res) {
-  res.json(poems);
+  let page = req.query.page || 1
+  let limit = req.query.limit || 6
+
+  if (page) {
+    
+    return res.json({totalPages: Math.ceil(poems.length/limit), data: poems.slice((page - 1)*limit, page*limit)})
+  } else {
+   return res.json(poems);
+  }
+
+  
 });
 
 poemsRouter.get("/:id", function (req, res) {

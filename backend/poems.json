@@ -2,15 +2,15 @@
   "poems": [
     {
       "id": 0,
-      "title": "Poem Title",
-      "author": "Bob Loblaw",
-      "text": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at ante vel eros rhoncus placerat. Cras pulvinar lorem eu suscipit condimentum. Maecenas malesuada dui vitae viverra imperdiet. Praesent in libero non magna ullamcorper placerat eget ut elit. Nulla ultricies tempus ultricies. Aliquam consequat elementum commodo. Vivamus et erat eu nunc molestie facilisis. Suspendisse varius commodo libero, non euismod est laoreet in. ",
+      "title": "The Death of the Ball Turret Gunner ",
+      "author": "Randall Jarrell",
+      "text": "From my mother’s sleep I fell into the State,\nAnd I hunched in its belly till my wet fur froze. Six miles from earth,\nloosed from its dream of life,\nI woke to black flak and the nightmare fighters.\nWhen I died they washed me out of the turret with a hose.",
       "votes": 4
     },
     {
-      "title": "Yes good title v2",
-      "author": "Bob Loblaw",
-      "text": "Yes this is good text.",
+      "title": "There is a gold light in certain old paintings",
+      "author": "Donald Justice",
+      "text": "There is a gold light in certain old paintings\nThat represents a diffusion of sunlight.\nIt is like happiness, when we are happy.\nIt comes from everywhere and from nowhere at once, this light,\nAnd the poor soldiers sprawled at the foot of the cross\nShare in its charity equally with the cross.\n\nOrpheus hesitated beside the black river.\nWith so much to look  forward to he looked back.\nWe think he sang then, but the song is lost.\nAt  least he had seen once more the  beloved back.\nI say the song went this way: O prolong\nNow the sorrow if that is all there is to prolong.\n\nThe world is very dusty, uncle. Let us work.\nOne day the sickness shall pass from the earth for good.\nThe orchard will bloom; someone will play the guitar.\nOur work will be seen as strong and clean and good.\nAnd all that we suffered through having existed\nShall be forgotten as though it had never existed.",
       "id": 1,
       "votes": 3
     },

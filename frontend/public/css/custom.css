@@ -138,3 +138,37 @@ div.markdownPreview {
   padding: .2rem .5rem;
   margin: 0 .2rem;
 }
+
+.pagination {
+  display: inline-block;
+  margin-top: 1.5em;
+  float: right;
+}
+
+.pagination button {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  line-height: 1em;
+}
+
+.pagination button.active {
+  background-color: var(--dark);
+  color: white;
+  border: 1px solid var(--dark);
+}
+
+.pagination button:hover:not(.active) {background-color: #ddd;}
+
+.pagination button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

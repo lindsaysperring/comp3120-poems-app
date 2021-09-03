@@ -37,8 +37,7 @@ export default function PoemCard({ id, text, title, author, votes, ...props }) {
       className="poemCard"
     >
       <ReactMarkdown className="poemText">
-        {/* {text.length > 200 ? `${text.substr(0, 200)} ...` : text} */}
-        {text}
+        {text.length > 200 ? `${text.substr(0, 200)} ...` : text}
       </ReactMarkdown>
       <span className="stayOnDaBottom">
       <h4>{title}</h4>
