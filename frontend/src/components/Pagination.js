@@ -23,7 +23,7 @@ export default function Pagination({ currentPage, totalPages, changePage }) {
   };
 
   return (
-    <div class="pagination">
+    <div className="pagination">
       {totalPages > 1 && <button onClick={() => {changePage(currentPage-1)}} >&laquo;</button>}
       <GeneratePageNumbers />
       {totalPages > 1 && (

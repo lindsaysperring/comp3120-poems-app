@@ -12,8 +12,10 @@ export default function Home() {
     error: null,
   });
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
+    setPoems({ ...poems, status: "loading" });
     axios
       .get("/api/poems?page=1")
       .then((res) => {
@@ -41,17 +43,25 @@ export default function Home() {
   }, []);
 
   const changePage = (pageNumber) => {
-    if (pageNumber < 1 || pageNumber > poems.totalPages) return
+    if (pageNumber < 1 || pageNumber > poems.totalPages) return;
+
+    const queryParams =
+      search !== ""
+        ? `page=${pageNumber}&search=${searchTerm}`
+        : `page=${pageNumber}`;
+
+    console.log(queryParams);
+
     axios
-      .get(`/api/poems?page=${pageNumber}`)
+      .get(`/api/poems?${queryParams}`)
       .then((res) => {
         setPoems({
           ...poems,
           poems: res.data.data,
           status: "success",
-          totalPages: res.data.totalPages,  
+          totalPages: res.data.totalPages,
         });
-        setCurrentPage(pageNumber)
+        setCurrentPage(pageNumber);
       })
       // From  https://gist.github.com/fgilio/230ccd514e9381fafa51608fcf137253
       .catch((error) => {
@@ -66,11 +76,37 @@ export default function Home() {
         }
         console.log(error);
       });
-  }
+  };
+
+  const search = async (search) => {
+    setPoems({ ...poems, status: "loading" });
+    const res = await axios(`/api/poems?page=1&search=${search}`);
+
+    setCurrentPage(1);
+    setPoems({
+      ...poems,
+      poems: res.data.data,
+      status: "success",
+      totalPages: res.data.totalPages,
+    });
+  };
+
+  const searchHandler = (e) => {
+    search(e.target.value);
+    setSearchTerm(e.target.value);
+  };
 
   return (
     <div>
       <h1>Awesome Poems</h1>
+      <div className="searchContainer">
+        <input
+          type="text"
+          placeholder="Search"
+          onChange={searchHandler}
+          value={searchTerm}
+        />
+      </div>
       <div className="poemGridContainer">
         {poems.poems.map((poem) => (
           <PoemCard
@@ -83,7 +119,11 @@ export default function Home() {
           />
         ))}
       </div>
-      <Pagination currentPage={currentPage} totalPages={poems.totalPages} changePage={changePage}/>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={poems.totalPages}
+        changePage={changePage}
+      />
     </div>
   );
 }

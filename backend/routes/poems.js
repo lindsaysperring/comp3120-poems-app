@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const rawdata = fs.readFileSync(path.join(__dirname, "../poems.json"));
 const initialPoems = JSON.parse(rawdata);
+const Fuse = require("fuse.js");
 
 let poems = initialPoems.poems;
 const sortPoems = () => {
@@ -24,18 +25,26 @@ const checkHeader = (req, res, next) => {
 
 poemsRouter.use(checkHeader);
 
-poemsRouter.get("/", function (req, res) {
-  let page = req.query.page || 1
-  let limit = req.query.limit || 6
+poemsRouter.get("/", async function (req, res) {
+  let page = req.query.page || 1;
+  let limit = req.query.limit || 6;
+  let search = req.query.search || "";
 
-  if (page) {
-    
-    return res.json({totalPages: Math.ceil(poems.length/limit), data: poems.slice((page - 1)*limit, page*limit)})
-  } else {
-   return res.json(poems);
+  if (search !== "") {
+    const fuse = new Fuse(poems, { keys: ["author", "text", "title"], ignoreLocation: true, threshold: 0.3});
+    const result = await fuse.search(search);
+    var poems2 = result.map(res => res.item)
   }
 
-  
+  if (page) {
+    const resultPoems = poems2 ? poems2 : poems;
+    return res.json({
+      totalPages: Math.ceil(resultPoems.length / limit),
+      data: resultPoems.slice((page - 1) * limit, page * limit),
+    });
+  } else {
+    return res.json(poems);
+  }
 });
 
 poemsRouter.get("/:id", function (req, res) {

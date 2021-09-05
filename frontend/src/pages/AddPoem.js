@@ -31,7 +31,7 @@ export default function AddPoem() {
     }
 
     axios
-      .post("/api/poems", inputs )
+      .post("/api/poems", inputs)
       .then((res) => {
         setStatus({ status: "success", error: null });
         setInputs(initialValues);
@@ -105,7 +105,7 @@ export default function AddPoem() {
             ></textarea>
           </div>
         </div>
-        <input class="darkButton" type="submit" value="Submit"></input>
+        <input className="darkButton" type="submit" value="Submit"></input>
       </form>
 
       {status.status === "success" && <p>Poem added Successfully</p>}
