@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router";
 
 import Pagination from "../components/Pagination";
 import PoemCard from "../components/PoemCard";
 import axios from "axios";
 import { liveSearch } from "../utils/liveSearch";
+import qs from "qs";
 
 export default function Home() {
   const [poems, setPoems] = useState({
@@ -12,13 +14,26 @@ export default function Home() {
     status: "idle",
     error: null,
   });
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState("");
+  const location = useLocation();
+  const initialSearch =
+    qs.parse(location.search, { ignoreQueryPrefix: true }).search || "";
+  const initialPage =
+    Number(qs.parse(location.search, { ignoreQueryPrefix: true }).page) || 1;
+
+  const [currentPage, setCurrentPage] = useState(initialPage);
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
+  const history = useHistory();
 
   useEffect(() => {
     setPoems({ ...poems, status: "loading" });
+
+    const queryParams =
+      search !== ""
+        ? `page=${currentPage}&search=${searchTerm}`
+        : `page=${currentPage}`;
+
     axios
-      .get("/api/poems?page=1")
+      .get(`/api/poems?${queryParams}`)
       .then((res) => {
         setPoems({
           ...poems,
@@ -54,6 +69,7 @@ export default function Home() {
   const changePage = (pageNumber) => {
     if (pageNumber < 1 || pageNumber > poems.totalPages) return;
     if (pageNumber === currentPage) return;
+
     const queryParams =
       search !== ""
         ? `page=${pageNumber}&search=${searchTerm}`
@@ -61,6 +77,14 @@ export default function Home() {
 
     setPoems({ ...poems, error: null, status: "loading" });
     setCurrentPage(pageNumber);
+
+    history.replace({
+      pathname: "/",
+      search:
+        searchTerm !== ""
+          ? `?page=${pageNumber}&search=${searchTerm}`
+          : `?page=${pageNumber}`,
+    });
 
     axios
       .get(`/api/poems?${queryParams}`)
@@ -73,6 +97,7 @@ export default function Home() {
           error: null,
         });
       })
+
       // From  https://gist.github.com/fgilio/230ccd514e9381fafa51608fcf137253
       .catch((error) => {
         if (error.response) {
@@ -97,16 +122,26 @@ export default function Home() {
 
   const search = async (searchVal) => {
     setPoems({ ...poems, status: "loading" });
+
     const res = await liveSearch(`/api/poems?page=1&search=${searchVal}`);
+
     if (res == null) return;
     if (res != null && res.error === null && res.cancelled) return;
+
     setCurrentPage(1);
+
     if (res.error)
       return setPoems({
         ...poems,
         status: "error",
         error: res.error,
       });
+
+    history.replace({
+      pathname: "/",
+      search: `?page=${currentPage}&search=${searchVal}`,
+    });
+
     setPoems({
       ...poems,
       poems: res.data,
