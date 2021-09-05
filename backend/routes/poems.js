@@ -7,20 +7,20 @@ const initialPoems = JSON.parse(rawdata);
 const Fuse = require("fuse.js");
 
 let poems = initialPoems.poems;
-const sortPoems = () => {
-  poems.sort((a, b) => {
+const sortPoems = (passedArray) => {
+  passedArray.sort((a, b) => {
     if (a.votes < b.votes) return 1;
     if (a.votes > b.votes) return -1;
     return 0;
   });
 };
 
-sortPoems();
+sortPoems(poems);
 
 const checkHeader = (req, res, next) => {
   const authHeader = req.header("bob");
   if (authHeader === "Bobalooba") return next();
-  return res.status(401).json({error: "Unauthorized"});
+  return res.status(401).json({ error: "Unauthorized" });
 };
 
 poemsRouter.use(checkHeader);
@@ -31,9 +31,14 @@ poemsRouter.get("/", async function (req, res) {
   let search = req.query.search || "";
 
   if (search !== "") {
-    const fuse = new Fuse(poems, { keys: ["author", "text", "title"], ignoreLocation: true, threshold: 0.3});
+    const fuse = new Fuse(poems, {
+      keys: ["author", "text", "title"],
+      ignoreLocation: true,
+      threshold: 0.3,
+    });
     const result = await fuse.search(search);
-    var poems2 = result.map(res => res.item)
+    var poems2 = result.map((res) => res.item);
+    sortPoems(poems2);
   }
 
   if (page) {
@@ -77,7 +82,7 @@ poemsRouter.post("/", function (req, res) {
 
   poems.push(newPoem);
 
-  sortPoems();
+  sortPoems(poems);
 
   res.json(newPoem);
 });
@@ -88,7 +93,7 @@ poemsRouter.post("/:id", (req, res) => {
 
   if (poem) {
     poem.votes++;
-    sortPoems();
+    sortPoems(poems);
     return res.json(poem);
   } else {
     res.status(404).json({ error: "Poem with ID not found" });
