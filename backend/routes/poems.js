@@ -20,7 +20,7 @@ sortPoems();
 const checkHeader = (req, res, next) => {
   const authHeader = req.header("bob");
   if (authHeader === "Bobalooba") return next();
-  return res.sendStatus(401);
+  return res.status(401).json({error: "Unauthorized"});
 };
 
 poemsRouter.use(checkHeader);

@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import axios from "axios";
 
 export default function PoemPage(props) {
+  // Get poem ID and set initial state
   const { id } = useParams();
   const [poem, setPoem] = useState({
     poem: { title: "", author: "", text: "", votes: "" },
@@ -14,6 +15,7 @@ export default function PoemPage(props) {
 
   const history = useHistory();
 
+  // Add votes
   const upDootHandler = (e) => {
     e.stopPropagation();
     axios
@@ -36,7 +38,10 @@ export default function PoemPage(props) {
   };
 
   useEffect(() => {
+    // Set loading status
     setPoem({ ...poem, error: null, status: "loading" });
+
+    // Get Poem
     axios
       .get(`/api/poems/${id}`)
       .then((res) => {
@@ -45,7 +50,14 @@ export default function PoemPage(props) {
       // From  https://gist.github.com/fgilio/230ccd514e9381fafa51608fcf137253
       .catch((error) => {
         if (error.response) {
-          setPoem({ ...poem, status: "error", error: error.response.data });
+          console.log(error.response.data);
+          setPoem({
+            ...poem,
+            status: "error",
+            error: error.response.data.error
+              ? error.response.data.error
+              : error.response.data,
+          });
         } else if (error.request) {
           setPoem({ ...poem, status: "error", error: "Something went Wrong" });
         } else {
