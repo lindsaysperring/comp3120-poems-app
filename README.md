@@ -23,6 +23,9 @@ Shows a maximum of 6 poems at a time on the landing screen. API slices to a maxi
 
 The pagination buttons created in a loop from 1 to the totalPages number. Clicking on a number or the arrows will send an API request to the server with the requested page number
 
+### Live Search
+Allows users to search and filter poems. This uses the Fuse.js fuzzy searching library on the backend to return search results. It is configured to search the author, title and text fields and returns items that contain the search term and the threshold is below 0.3 in the Fuse.js scoring. The live search is adapted from a tutorial on digital ocean found at [https://www.digitalocean.com/community/tutorials/react-live-search-with-axios](https://www.digitalocean.com/community/tutorials/react-live-search-with-axios). This implementation cancels the previous request as the user continues typing.
+
 # Poems Backend
 
 ### Starting the server
@@ -41,3 +44,6 @@ Users can vote for poems. When a poem is created or a vote is added the poems ar
 
 ### Pagination
 See pagination in frontend
+
+### Live search
+See live search in frontend

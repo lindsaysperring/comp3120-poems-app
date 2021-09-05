@@ -36,6 +36,7 @@ export default function PoemPage(props) {
   };
 
   useEffect(() => {
+    setPoem({ ...poem, error: null, status: "loading" });
     axios
       .get(`/api/poems/${id}`)
       .then((res) => {
@@ -44,12 +45,11 @@ export default function PoemPage(props) {
       // From  https://gist.github.com/fgilio/230ccd514e9381fafa51608fcf137253
       .catch((error) => {
         if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
+          setPoem({ ...poem, status: "error", error: error.response.data });
         } else if (error.request) {
-          console.log(error.request);
+          setPoem({ ...poem, status: "error", error: "Something went Wrong" });
         } else {
+          setPoem({ ...poem, status: "error", error: "Something went wrong" });
           console.log("Error", error.message);
         }
         console.log(error);
@@ -88,6 +88,8 @@ export default function PoemPage(props) {
           </span>
         </div>
       )}
+      {poem.status === "error" && <h3>{poem.error}</h3>}
+      {poem.status === "loading" && <h3>Loading...</h3>}
     </>
   );
 }

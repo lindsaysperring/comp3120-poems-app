@@ -42,12 +42,12 @@ export default function AddPoem() {
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
-          setStatus({ status: "fail", error: error.response.data });
+          setStatus({ status: "error", error: error.response.data });
         } else if (error.request) {
-          setStatus({ status: "fail", error: "Something went wrong" });
+          setStatus({ status: "error", error: "Something went wrong" });
           console.log(error.request);
         } else {
-          setStatus({ status: "fail", error: "Something went wrong" });
+          setStatus({ status: "error", error: "Something went wrong" });
           console.log("Error", error.message);
         }
         console.log(error);

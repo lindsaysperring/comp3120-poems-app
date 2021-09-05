@@ -10,7 +10,8 @@ export default function Pagination({ currentPage, totalPages, changePage }) {
     for (let i = 1; i <= totalPages; i++) {
       pages.push(
         <button
-          className={currentPage === i && "active"}
+        key={i}
+          className={currentPage === i ? "active" : null}
           onClick={(e) => {
             changePage(i);
           }}
