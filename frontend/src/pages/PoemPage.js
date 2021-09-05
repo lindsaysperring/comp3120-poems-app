@@ -78,7 +78,7 @@ export default function PoemPage(props) {
             By <b>{poem.poem.author}</b>
           </p>
           <br />
-          <ReactMarkdown className="poemText">{poem.poem.text}</ReactMarkdown>
+          <ReactMarkdown>{poem.poem.text}</ReactMarkdown>
           <br />
           <div className="upDootContainer">
             <img

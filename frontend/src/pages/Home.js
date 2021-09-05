@@ -34,7 +34,7 @@ export default function Home() {
 
     // Generate query params depending on if there is a search term or not
     const queryParams =
-      search !== ""
+      searchTerm !== ""
         ? `page=${currentPage}&search=${searchTerm}`
         : `page=${currentPage}`;
 
@@ -87,7 +87,7 @@ export default function Home() {
 
     // Generate query params depending on if there is a search term or not
     const queryParams =
-      search !== ""
+      searchTerm !== ""
         ? `page=${pageNumber}&search=${searchTerm}`
         : `page=${pageNumber}`;
 
