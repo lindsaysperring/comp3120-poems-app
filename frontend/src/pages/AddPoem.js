@@ -7,12 +7,6 @@ import { useHistory } from "react-router-dom";
 const initialValues = { author: "", title: "", text: "" };
 const initialStatus = { status: "idle", error: null };
 
-/// TODO
-/*
-Make sure all values are present before submitting
-add error messages with red colour
-*/
-
 export default function AddPoem() {
   const [inputs, setInputs] = useState(initialValues);
   const [status, setStatus] = useState(initialStatus);
